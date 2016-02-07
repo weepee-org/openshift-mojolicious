@@ -1,4 +1,4 @@
 #!/bin/bash
 
 #run mojolicious
-morbo /app/mojo.pl
+morbo -l "http://0.0.0.0:3000" /app/mojo.pl
