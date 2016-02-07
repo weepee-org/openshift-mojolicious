@@ -11,6 +11,9 @@ RUN cpanm Mojolicious Redis::Fast Mojo::JSON
 # Run scripts
 ADD scripts/run.sh /scripts/run.sh
 
+# Make executable
+RUN chmod a+rx /scripts/run.sh
+
 # Your app
 ADD app/mojo.pl /app/mojo.pl
 
@@ -21,7 +24,6 @@ EXPOSE 3000
 WORKDIR /app
 
 ENTRYPOINT ["/scripts/run.sh"]
-
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Mojolicious" \
