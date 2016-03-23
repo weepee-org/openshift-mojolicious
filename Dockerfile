@@ -5,7 +5,7 @@ RUN yum -y install epel-release && yum -y install find xargs pwgen supervisor ba
 
 RUN cpanm Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval EV AnyEvent File::Basename Mojo::IOLoop  AnyEvent::HTTP::Request
 
-RUN AnyEvent::WebSocket::Client
+RUN cpanm -f AnyEvent::WebSocket::Client
 
 # Build Debug
 RUN find /root/.cpanm/work/*/build.log | xargs cat
