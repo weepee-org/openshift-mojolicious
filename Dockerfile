@@ -7,6 +7,8 @@ RUN cpanm Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Moj
 
 RUN cpanm -f AnyEvent::WebSocket::Client
 
+RUN cpanm XML::Loy XML::XML2JSON JSON::Syck;
+
 # Build Debug
 RUN find /root/.cpanm/work/*/build.log | xargs cat
 
