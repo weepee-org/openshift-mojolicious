@@ -8,7 +8,7 @@ wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 rm -f /var/cache/apk/* && \
 apk upgrade && \
 cpanm --force B::Keywords && \
-cpanm ExtUtils::MakeMaker parent Exporter Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven B B::Keywords Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval EV AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request File::Touch Config::YAML WebService::HipChat Data::Validate::URI File::Sync XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig YAML::XS Test::BDD::Cucumber boolean
+cpanm ExtUtils::MakeMaker parent Exporter Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI File::Sync XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig boolean
 
 # Build Debug
 RUN find /root/.cpanm/work/*/build.log | xargs cat
