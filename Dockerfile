@@ -1,7 +1,7 @@
-FROM alpine:edge
+FROM alpine:3.3
 MAINTAINER Joeri van Dooren <ure@mororless.be>
 
-RUN apk update && apk add perl make wget curl git vim perl-net-ssleay perl-clone perl-list-moreutils perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-json-xs perl-data-uuid && wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && cpanm Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval EV AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request File::Touch Config::YAML WebService::HipChat Data::Validate::URI File::Sync XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig YAML::XS Test::BDD::Cucumber boolean
+RUN apk update && apk add perl make wget curl git vim perl-net-ssleay perl-clone perl-list-moreutils perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid && apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --update perl-json-xs && wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && cpanm Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval EV AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request File::Touch Config::YAML WebService::HipChat Data::Validate::URI File::Sync XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig YAML::XS Test::BDD::Cucumber boolean
 
 RUN cpanm -f AnyEvent::WebSocket::Client
 
