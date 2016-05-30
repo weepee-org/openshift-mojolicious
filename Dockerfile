@@ -3,7 +3,7 @@ MAINTAINER Joeri van Dooren <ure@mororless.be>
 
 RUN apk update && apk add perl make wget curl git vim perl-net-ssleay perl-clone perl-list-moreutils perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime  && \
 apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/main/ --allow-untrusted --update add perl-xml-sax && \
-apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --update add perl-json-xs perl-yaml-xs perl-yaml-syck perl-xml-libxml perl-data-dumper perl-extutils-makemaker && \
+apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --update add perl-json-xs perl-yaml-xs perl-yaml-syck perl-xml-libxml perl-data-dumper && \
 wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 rm -f /var/cache/apk/* && \
 apk upgrade && \
