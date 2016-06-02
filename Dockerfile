@@ -8,9 +8,9 @@ wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 rm -f /var/cache/apk/* && \
 apk upgrade && \
 cpanm --force B::Keywords && \
-cpanm ExtUtils::MakeMaker parent Exporter Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI  XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig boolean
+cpanm ExtUtils::MakeMaker parent Exporter Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI  XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig boolean
 
-# Redis::Fast File::Sync
+# Redis::Fast File::Sync XML::XML2JSON
 
 # Build Debug
 RUN find /root/.cpanm/work/*/build.log | xargs cat
