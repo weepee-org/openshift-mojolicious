@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.3
 MAINTAINER Joeri van Dooren <ure@mororless.be>
 
 RUN apk update && apk add perl perl-dev gcc musl-dev libxml2 libxml2-dev tar rsync make wget curl git vim redis perl-net-ssleay perl-clone perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime perl-file-rsync perl-mime-tools perl-yaml-xs perl-extutils-cchecker perl-extutils-helpers perl-extutils-config perl-extutils-installpaths perl-xml-sax perl-yaml-xs perl-yaml-syck perl-json && \
