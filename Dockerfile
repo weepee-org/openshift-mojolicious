@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER Joeri van Dooren <ure@mororless.be>
 
 RUN apk update && apk add tzdata bash tar rsync  \
-perl perl-dev gcc musl-dev libxml2 libxml2-dev  make wget curl git vim redis perl-net-ssleay perl-clone perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime perl-file-rsync perl-mime-tools perl-yaml-xs perl-extutils-cchecker perl-extutils-helpers perl-extutils-config perl-extutils-installpaths  perl-yaml-xs perl-yaml-syck perl-json perl-exporter perl-data-uuid perl-time-hires perl-time-date perl-datetime-timezone perl-file-slurp perl-params-validate perl-xml-sax && \
+perl perl-dev gcc musl-dev libxml2 libxml2-dev make wget curl git vim redis hiredis-dev hiredis perl-net-ssleay perl-clone perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime perl-file-rsync perl-mime-tools perl-yaml-xs perl-extutils-cchecker perl-extutils-helpers perl-extutils-config perl-extutils-installpaths  perl-yaml-xs perl-yaml-syck perl-json perl-exporter perl-data-uuid perl-time-hires perl-time-date perl-datetime-timezone perl-file-slurp perl-params-validate perl-xml-sax && \
 wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 #rm -f /var/cache/apk/* && \
 apk upgrade && \
@@ -10,8 +10,10 @@ apk upgrade && \
 cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
 echo "Europe/Brussels" >  /etc/timezone && \
 #apk del tzdata && \
-cpanm Data::Dumper JSON::XS Redis::Fast ExtUtils::MakeMaker parent Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig boolean File::Sync WWW::Mailgun experimental && \
+cpanm Data::Dumper JSON::XS  ExtUtils::MakeMaker parent Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig boolean File::Sync WWW::Mailgun experimental && \
 cpanm --force XML::LibXML XML::XML2JSON
+
+# Redis::Fast (check)
 
 # zbar
 RUN apk add linux-headers imagemagick-dev jpeg-dev libjpeg jpeg libltdl libtool lcms2-dev fontconfig-dev freetype-dev && \
