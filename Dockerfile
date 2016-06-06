@@ -8,10 +8,10 @@ perl perl-dev gcc musl-dev libxml2 libxml2-dev  make wget curl git vim redis per
 wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 rm -f /var/cache/apk/* && \
 apk upgrade && \
-apk add tzdata && \
-cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
-echo "Europe/Brussels" >  /etc/timezone && \
-apk del tzdata && \
+#apk add tzdata && \
+#cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+#echo "Europe/Brussels" >  /etc/timezone && \
+#apk del tzdata && \
 cpanm Data::Dumper JSON::XS XML::LibXML Redis::Fast ExtUtils::MakeMaker parent Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig boolean File::Sync XML::XML2JSON WWW::Mailgun experimental && \
 cpanm --force XML::LibXML
 
@@ -23,7 +23,7 @@ bunzip2 -c zbar-0.10.tar.bz2 | tar xvf - && \
 cd zbar-0.10 && \
 ./configure --disable-video --without-python --without-qt --without-gtk && \
 make && make install && \
-cpanm -f Barcode::ZBar 
+cpanm -f Barcode::ZBar
 
 # Your app
 ADD app/mojo.pl /app/mojo.pl
