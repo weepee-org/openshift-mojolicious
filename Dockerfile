@@ -14,7 +14,7 @@ cpanm --force XML::LibXML
 # Your app
 ADD app/mojo.pl /app/mojo.pl
 
-RUN cpanm WWW::Mailgun
+RUN cpanm WWW::Mailgun experimental
 
 # Exposed Port
 EXPOSE 3000
