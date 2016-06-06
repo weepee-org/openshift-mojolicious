@@ -26,7 +26,7 @@ EXPOSE 3000
 # VOLUME /app
 WORKDIR /app
 
-ENTRYPOINT ["/scripts/run.sh"]
+ENTRYPOINT ["/app/run.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Mojolicious" \
