@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $MOJO_MODE="production" ]; then
   PERL_ANYEVENT_RESOLV_CONF=resolv.conf hypnotoad -f mojo.pl
 else

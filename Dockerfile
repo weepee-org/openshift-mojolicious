@@ -3,7 +3,8 @@ MAINTAINER Joeri van Dooren <ure@mororless.be>
 
 # add when 3.4 is there  (and remove from cpanm)
 ## perl-xml-sax
-RUN apk update && apk add perl perl-dev gcc musl-dev libxml2 libxml2-dev tar rsync make wget curl git vim redis perl-net-ssleay perl-clone perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime perl-file-rsync perl-mime-tools perl-yaml-xs perl-extutils-cchecker perl-extutils-helpers perl-extutils-config perl-extutils-installpaths  perl-yaml-xs perl-yaml-syck perl-json perl-exporter perl-data-uuid perl-time-hires perl-time-date perl-datetime-timezone perl-file-slurp perl-params-validate && \
+RUN apk update && apk add bash tar rsync \
+perl perl-dev gcc musl-dev libxml2 libxml2-dev  make wget curl git vim redis perl-net-ssleay perl-clone perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime perl-file-rsync perl-mime-tools perl-yaml-xs perl-extutils-cchecker perl-extutils-helpers perl-extutils-config perl-extutils-installpaths  perl-yaml-xs perl-yaml-syck perl-json perl-exporter perl-data-uuid perl-time-hires perl-time-date perl-datetime-timezone perl-file-slurp perl-params-validate && \
 wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 rm -f /var/cache/apk/* && \
 apk upgrade && \
