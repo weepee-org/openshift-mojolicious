@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Route
-metadata:
-  name: www.mymojo-site.com
-spec:
-  host: www.mymojo-site.com
-  to:
-    kind: Service
-    name: mojolicious
