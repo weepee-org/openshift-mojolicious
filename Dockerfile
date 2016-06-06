@@ -4,7 +4,7 @@ MAINTAINER Joeri van Dooren <ure@mororless.be>
 RUN apk update && apk add tzdata bash tar rsync  \
 perl perl-dev gcc musl-dev libxml2 libxml2-dev  make wget curl git vim redis perl-net-ssleay perl-clone perl-package-stash perl-package-stash-xs perl-lwp-useragent-determined perl-data-uuid perl-datetime perl-file-rsync perl-mime-tools perl-yaml-xs perl-extutils-cchecker perl-extutils-helpers perl-extutils-config perl-extutils-installpaths  perl-yaml-xs perl-yaml-syck perl-json perl-exporter perl-data-uuid perl-time-hires perl-time-date perl-datetime-timezone perl-file-slurp perl-params-validate perl-xml-sax && \
 wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
-rm -f /var/cache/apk/* && \
+#rm -f /var/cache/apk/* && \
 apk upgrade && \
 #apk add tzdata && \
 cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
