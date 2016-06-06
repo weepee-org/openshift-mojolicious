@@ -15,7 +15,7 @@ cd /tmp && \
 wget http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 && \
 bunzip2 -c zbar-0.10.tar.bz2 | tar xvf - && \
 cd zbar-0.10 && \
-./configure --disable-video --without-python --without-qt --without-gtk && \
+./configure --disable-video --without-python --without-qt --without-gtk --prefix=/usr && \
 make && make install && \
 cpanm -f Barcode::ZBar && \
 rm -fr /tmp/* && \
