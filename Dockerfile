@@ -19,7 +19,7 @@ cd zbar-0.10 && \
 make && make install && \
 cpanm -f Barcode::ZBar && \
 rm -fr /tmp/* && \
-apk del tzdata perl-dev gcc musl-dev libxml2-dev make linux-headers imagemagick-dev jpeg-dev lcms2-dev fontconfig-dev freetype-dev && \
+#apk del tzdata perl-dev gcc musl-dev libxml2-dev make linux-headers imagemagick-dev jpeg-dev lcms2-dev fontconfig-dev freetype-dev && \
 rm -f /var/cache/apk/*
 
 # Your app
