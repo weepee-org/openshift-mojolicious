@@ -10,7 +10,7 @@ wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
 echo "Europe/Brussels" >  /etc/timezone && \
 cpanm Data::Dumper JSON::XS ExtUtils::MakeMaker parent Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry  Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig File::Sync WWW::Mailgun experimental && \
-cpanm --force XML::LibXML XML::XML2JSON Redis::Fast Image::Magick && \
+cpanm --force XML::LibXML XML::XML2JSON Redis::Fast Image::Magick Sentry::Raven MongoDB::MongoClient && \
 cd /tmp && \
 wget http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 && \
 bunzip2 -c zbar-0.10.tar.bz2 | tar xvf - && \
