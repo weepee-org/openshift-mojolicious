@@ -35,7 +35,7 @@ ENTRYPOINT ["/app/run.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Mojolicious" \
-      io.k8s.display-name="mojolicious centos7 epel" \
+      io.k8s.display-name="mojolicious alpine" \
       io.openshift.expose-services="3000:http" \
       io.openshift.tags="builder,mojolicious,perl" \
       io.openshift.min-memory="1Gi" \
