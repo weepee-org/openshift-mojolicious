@@ -2,7 +2,7 @@ FROM centos:latest
 MAINTAINER Joeri van Dooren
 
 RUN yum -y install epel-release && yum -y install find xargs pwgen supervisor bash-completion psmisc tar postgresql mysql uuid libuuid curl wget git gcc hiredis hiredis-devel libidn expat socat zeromq3 lrzip redis && \
-yum search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | xargs yum -y --allowerasing --best install && yum clean all -y && \
+yum search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | xargs yum -y install && yum clean all -y && \
 curl -L https://cpanmin.us | perl - --sudo App::cpanminus && \
 ln -s /usr/local/bin/cpanm /usr/bin/cpanm && \
 /usr/local/bin/cpanm App::cpanoutdated && \
