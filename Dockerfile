@@ -1,11 +1,12 @@
 FROM perl:latest
 MAINTAINER Joeri van Dooren
 
-RUN curl -L https://cpanmin.us | perl - App::cpanminus
+# install Carton & Mojo
 RUN cpanm Carton Mojolicious
 
+# fix timezone shizzle
 RUN cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
-echo "Europe/Brussels" >  /etc/timezone && \
+echo "Europe/Brussels" >  /etc/timezone
 
 # Run scripts
 ADD scripts/run.sh /scripts/run.sh
