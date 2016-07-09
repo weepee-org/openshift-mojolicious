@@ -1,21 +1,17 @@
 FROM perl:latest
 MAINTAINER Joeri van Dooren
 
-# install Carton & Mojo
-RUN cpanm Carton Mojolicious
-
-# fix timezone shizzle
-RUN cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
-echo "Europe/Brussels" >  /etc/timezone
-
 # Run scripts
 ADD scripts/run.sh /scripts/run.sh
 
-# Make executable
-RUN chmod a+rx /scripts/run.sh
-
 # Your app
 ADD app/mojo.pl /app/mojo.pl
+
+# install Carton & Mojo
+RUN cpanm Carton Mojolicious && \
+ cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+ echo "Europe/Brussels" >  /etc/timezone && \
+chmod a+rx /scripts/run.sh
 
 # Exposed Port
 EXPOSE 3000
