@@ -1,16 +1,16 @@
-FROM centos:latest
+FROM fedora:latest
 MAINTAINER Joeri van Dooren
 
-RUN yum -y install epel-release && yum -y install find xargs pwgen supervisor bash-completion psmisc tar postgresql mysql uuid libuuid curl wget git gcc hiredis hiredis-devel libidn expat socat zeromq3 lrzip redis sox && \
-yum search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | grep -v perl-Sys-Virt | grep -v perl-Sys-Detect-Virtualization | grep -v perl-Sys-Guestfs | grep -v perl-Gtk2 | grep -v perl-Glib | grep -v perl-Net-CUPS | grep -v perl-OpenGL | grep -v erl-Tk | grep -v perl-X11 | grep -v perl-GD | xargs yum -y install && yum clean all -y
+RUN dnf -y install find xargs pwgen supervisor bash-completion psmisc tar postgresql mysql uuid libuuid curl wget git gcc hiredis hiredis-devel libidn expat socat zeromq3 lrzip redis sox && \
+dnf search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | grep -v perl-Sys-Virt | grep -v perl-Sys-Detect-Virtualization | grep -v perl-Sys-Guestfs | grep -v perl-Gtk2 | grep -v perl-Glib | grep -v perl-Net-CUPS | grep -v perl-OpenGL | grep -v erl-Tk | grep -v X11 | grep -v perl-GD | xargs dnf -y install && dnf clean all -y
 
 RUN curl -L https://cpanmin.us | perl - App::cpanminus && \
 ln -s /usr/local/bin/cpanm /usr/bin/cpanm
 
-RUN yum -y update
+RUN dnf -y update
 
 # RUN cpan-outdated -p | /usr/local/bin/cpanm --force
-RUN cpanm -f MIME::Entity
+# RUN cpanm -f MIME::Entity
 RUN cpanm Types::Standard Type::Utils Type::Library Type::Tiny Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval EV AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request File::Touch Config::YAML WebService::HipChat Data::Validate::URI File::Sync XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig YAML::XS Test::BDD::Cucumber boolean Data::Dumper JSON::XS ExtUtils::MakeMaker parent Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry  Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig File::Sync WWW::Mailgun experimental Sentry::Raven MongoDB::MongoClient MongoDB::GridFS
 
 RUN cpanm -f AnyEvent::WebSocket::Client
