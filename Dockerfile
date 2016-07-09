@@ -10,6 +10,7 @@ ln -s /usr/local/bin/cpanm /usr/bin/cpanm
 RUN yum -y update
 
 # RUN cpan-outdated -p | /usr/local/bin/cpanm --force
+RUN cpanm -f MIME::Entity
 RUN cpanm Types::Standard Type::Tiny Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry Data::GUID Time::Interval EV AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request File::Touch Config::YAML WebService::HipChat Data::Validate::URI File::Sync XML::Loy XML::XML2JSON JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig YAML::XS Test::BDD::Cucumber boolean Data::Dumper JSON::XS ExtUtils::MakeMaker parent Perl::Critic Perl::Critic::Utils Test::Perl::Critic Sentry::Raven Mojolicious  Mojo::JSON Mojolicious::Plugin::RenderFile Mojolicious::Plugin::Sentry  Time::Interval AnyEvent AnyEvent::DNS File::Basename Mojo::IOLoop AnyEvent::HTTP AnyEvent::HTTP::Request Config::YAML WebService::HipChat Data::Validate::URI XML::Loy JSON::Syck Modern::Perl Mojolicious::Plugin::YamlConfig File::Sync WWW::Mailgun experimental Sentry::Raven MongoDB::MongoClient MongoDB::GridFS
 
 RUN cpanm -f AnyEvent::WebSocket::Client
