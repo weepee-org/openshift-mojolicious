@@ -1,7 +1,7 @@
 FROM fedora:latest
 MAINTAINER Joeri van Dooren
 
-RUN dnf -y install find xargs pwgen supervisor bash-completion psmisc tar postgresql mysql uuid libuuid curl wget git gcc hiredis hiredis-devel libidn expat socat zeromq3 lrzip redis sox awk grep
+RUN yum -y install find xargs pwgen supervisor bash-completion psmisc tar postgresql mysql uuid libuuid curl wget git gcc hiredis hiredis-devel libidn expat socat zeromq3 lrzip redis sox
 
 RUN dnf search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | grep -v perl-Sys-Virt | grep -v perl-Sys-Detect-Virtualization | grep -v perl-Sys-Guestfs | grep -v perl-Gtk2 | grep -v perl-Glib | grep -v perl-Net-CUPS | grep -v perl-OpenGL | grep -v erl-Tk | grep -v X11 | grep -v perl-GD | xargs dnf -y install
 
