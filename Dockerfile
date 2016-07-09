@@ -2,8 +2,9 @@ FROM centos:latest
 MAINTAINER Joeri van Dooren
 
 RUN yum -y install epel-release && yum -y install find xargs pwgen supervisor bash-completion psmisc tar postgresql mysql uuid libuuid curl wget git gcc hiredis hiredis-devel libidn expat socat zeromq3 lrzip redis && \
-yum search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | xargs yum -y install && yum clean all -y && \
-curl -L https://cpanmin.us | perl - --sudo App::cpanminus && \
+yum search perl | grep "^perl" | awk "{ print \$1 }" | grep x86 | grep -v gettext | xargs yum -y install && yum clean all -y
+
+RUN curl -L https://cpanmin.us | perl - App::cpanminus && \
 ln -s /usr/local/bin/cpanm /usr/bin/cpanm && \
 /usr/local/bin/cpanm App::cpanoutdated && \
 cpan-outdated -p | sudo /usr/local/bin/cpanm && \
@@ -11,7 +12,7 @@ cpanm Mojolicious Redis::Fast Mojo::JSON Mojolicious::Plugin::RenderFile Mojolic
 cpanm -f AnyEvent::WebSocket::Client
 
 # Build Debug
-RUN find /root/.cpanm/work/*/build.log | xargs cat
+#RUN find /root/.cpanm/work/*/build.log | xargs cat
 
 # Run scripts
 ADD scripts/run.sh /scripts/run.sh
