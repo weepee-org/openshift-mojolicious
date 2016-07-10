@@ -9,8 +9,9 @@ apk upgrade && \
 wget --no-check-certificate -O - http://cpanmin.us | perl - App::cpanminus && \
 cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
 echo "Europe/Brussels" >  /etc/timezone && \
-cpanm Carton && \
-rm -f /var/cache/apk/*
+cpanm Carton
+#&& \
+#rm -f /var/cache/apk/*
 
 # Your app
 ADD app/mojo.pl /app/mojo.pl
