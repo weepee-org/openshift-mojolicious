@@ -1,4 +1,4 @@
-FROM perl:latest
+FROM perl:5.22
 MAINTAINER Joeri van Dooren
 
 # Run scripts
